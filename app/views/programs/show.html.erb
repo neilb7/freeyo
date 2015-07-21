@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1><%= @program.name %></h1>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @program.description %>
+</p>
+
+<h2>Program Schedule</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @program.days.each do |day| %>
+      <tr>
+        <td><%= day.day_number %></td>
+        <td><%= day.info %></td>     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>

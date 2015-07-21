@@ -1,0 +1,41 @@
+<h1>Editing program</h1>
+
+<%= render 'form' %>
+
+<h2>Program Schedule</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @program.days.each do |day| %>
+      <tr>
+        <td><%= day.day_number %></td>
+        <td><%= day.info %></td>
+        <td><%= link_to 'Edit', edit_program_day_path(@program, day) %></td>    
+        <td><%= link_to 'Delete', [day.program, day], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Add a day:</h2>
+<%= form_for([@program, @program.days.build]) do |f| %>
+  <p>
+    <%= f.label :day_number %><br>
+    <%= f.text_field :day_number %>
+  </p>
+  <p>
+    <%= f.label :info %><br>
+    <%= f.text_area :info %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @program %> |
+<%= link_to 'Back', programs_path %>

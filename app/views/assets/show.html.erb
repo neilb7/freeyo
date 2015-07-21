@@ -1,0 +1,6 @@
+<p><%= @asset.name %></p>
+<%= video_tag @asset.video.url if @asset.video_stored? %>
+
+<p><%= link_to 'Edit', edit_asset_path %></p>
+<p><%= link_to 'Back', assets_path %></p>
+<p><%= link_to 'Delete', asset_path, method: :delete, data: { confirm: 'Are you sure?'} %></p>

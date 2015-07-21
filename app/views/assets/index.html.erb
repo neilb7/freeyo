@@ -1,0 +1,17 @@
+<h1>Listing all Assets</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+  </tr>
+  <% @assets.each do |asset| %>
+    <tr>
+      <td><%= asset.name %></td>
+      <td><%= link_to 'Show', asset %></td>
+      <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+      <td><%= link_to 'Delete', asset_path(asset), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+
+</table>
+ <%= link_to 'New Asset', new_asset_path %> 
